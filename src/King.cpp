@@ -104,7 +104,7 @@ bool King::isCheck(Square Cells[][8], int x, int y)
         }
         r--;
     }
-    // below four loops are to check if it is being atteacked from diagonals
+    // below four loops are to check if it is being attacked from diagonals
     int a = x + 1, b = y + 1;
     while (a < 8 && b < 8)
     {
@@ -181,7 +181,7 @@ bool King::isCheck(Square Cells[][8], int x, int y)
         if (Cells[x + dx[i]][y + dy[i]].occupied_color != Cells[x][y].occupied_color && Cells[x + dx[i]][y + dy[i]].occupied_value == 3)
             return true;
     }
-    // loop to check if the king is being attacked by knight of opposite colour
+    // loop to check if the king is being attacked by knight of opposite color
     int xa[] = {2, 2, -2, -2, 1, 1, -1, -1}; // all possible moves.
     int ya[] = {1, -1, 1, -1, 2, -2, 2, -2}; // all possible moves.
     for (int i = 0; i < 8; i++)
@@ -189,7 +189,7 @@ bool King::isCheck(Square Cells[][8], int x, int y)
         if (Cells[x + xa[i]][y + ya[i]].occupied_color != Cells[x][y].occupied_color && Cells[x + xa[i]][y + ya[i]].occupied_value == -1)
             return true;
     }
-    // loops to check if the king is being attacked by the pawn of another colour
+    // loops to check if the king is being attacked by the pawn of another color
     if (Cells[x][y].occupied_color == 1)
     {
         if (x < 8 && y > 0 && Cells[x + 1][y - 1].occupied_color == 0 && Cells[x + 1][y - 1].occupied_value == -3)
